@@ -4,6 +4,8 @@
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public int health = 5;
+
     private Rigidbody _rigidbody;
     private PlayerInput _input;
     private Movement _movement;
@@ -26,8 +28,15 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Pickup"))
         {
-            Debug.Log($"Score {++score}");
             other.GetComponent<ICollectable>().Collect();
+            ++score;
+            Debug.Log($"Score: {score}");
+        }
+
+        if (other.CompareTag("Trap"))
+        {
+            --health;
+            Debug.Log($"Health: {health}");
         }
     }
 }
