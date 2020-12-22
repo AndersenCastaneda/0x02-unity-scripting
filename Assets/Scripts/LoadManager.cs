@@ -6,9 +6,9 @@ public class LoadManager : MonoBehaviour
 {
     private readonly float time = 0.5f;
 
-    private void OnEnable() => PlayerController.onDead += RestartLevel;
+    private void OnEnable() => PlayerController.OnDead += RestartLevel;
 
-    private void OnDisable() => PlayerController.onDead -= RestartLevel;
+    private void OnDisable() => PlayerController.OnDead -= RestartLevel;
 
     private void RestartLevel() => StartCoroutine(LoadLevel());
 
