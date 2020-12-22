@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerController : MonoBehaviour
@@ -10,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private PlayerInput _input;
     private Movement _movement;
     private int score = 0;
+
+    public static event Action onDead;
 
     private void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
@@ -29,14 +32,29 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Pickup"))
         {
             other.GetComponent<ICollectable>().Collect();
-            ++score;
+            Collect();
             Debug.Log($"Score: {score}");
         }
 
         if (other.CompareTag("Trap"))
         {
-            --health;
+            TakeDamage();
             Debug.Log($"Health: {health}");
+        }
+
+        if (other.CompareTag("Goal"))
+            Debug.Log("You win!");
+    }
+
+    void Collect() => ++score;
+
+    void TakeDamage()
+    {
+        --health;
+        if (health == 0)
+        {
+            Debug.Log("Game Over!");
+            onDead?.Invoke();
         }
     }
 }
