@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Game Over!");
             OnDead?.Invoke();
+
+            _rigidbody.drag = 2;
+            gameObject.GetComponent<PlayerController>().enabled = false;
         }
     }
 }

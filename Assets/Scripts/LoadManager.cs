@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadManager : MonoBehaviour
 {
-    private readonly float time = 0.5f;
+    private readonly float time = 6f;
 
     private void OnEnable() => PlayerController.OnDead += RestartLevel;
 
