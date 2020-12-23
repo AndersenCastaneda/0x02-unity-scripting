@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public static event Action OnDead;
     public static event Action OnDamage;
+    public static event Action OnCollect;
 
     private void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
         {
             other.GetComponent<ICollectable>().Collect();
             Collect();
+            OnCollect();
         }
 
         if (other.CompareTag("Trap"))

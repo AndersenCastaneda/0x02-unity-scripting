@@ -1975,8 +1975,8 @@ GameObject:
   m_Component:
   - component: {fileID: 404366724}
   - component: {fileID: 404366723}
-  - component: {fileID: 404366722}
   - component: {fileID: 404366725}
+  - component: {fileID: 404366722}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1996,6 +1996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea56fb869727b844ea9d1d4bb138849c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioDamage: {fileID: 404366723}
+  audioCoin: {fileID: 404366725}
   clips:
   - {fileID: 8300000, guid: fc64b83d0725e2f469ac451d7b092927, type: 3}
   - {fileID: 8300000, guid: 81940dc7095acfd4993bf6efeb86c606, type: 3}
@@ -2119,11 +2121,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2c172b68e857e1242a227b3595e77b94, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4dd1753d30f45f64f99329fe0e200559, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.5
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
