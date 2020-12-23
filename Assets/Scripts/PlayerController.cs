@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private int score = 0;
 
     public static event Action OnDead;
+    public static event Action OnDamage;
 
     private void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
@@ -51,6 +52,7 @@ public class PlayerController : MonoBehaviour
     void TakeDamage()
     {
         --health;
+        OnDamage();
         Debug.Log($"Health: {health}");
 
         if (health == 0)
